@@ -33,19 +33,14 @@ export class HomeComponent {
     this.isAvailable = !this.isAvailable;
   }
 
-
-
   displayContent(value: string) {
     this.displayedContent = `You entered: ${value}`;
   }
-
-  
 
   toggleErrorState() {
     this.isSuccess = !this.isSuccess;
     this.isError = !this.isError;
     this.message = this.isError ? 'Error' : 'Success';
   }
-
 
 }
