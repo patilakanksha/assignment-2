@@ -35,7 +35,7 @@
         </div>
     </div>
 </div>
-<div class="row">
+<div class="row mb-5">
     <div class="col">
         <div class="mt-4">
             <div class="card">
@@ -43,7 +43,7 @@
                     <h5 class="card-title">Custom Pipe</h5>
                     <div>
                         <label for="metersInput">Enter value in meters:</label>
-                        <input type="number" id="metersInput" [(ngModel)]="metersValue">
+                        <input type="number" class="form-control" id="metersInput" [(ngModel)]="metersValue">
                     </div>
                     <div>
                         Value in centimeters: {{ metersValue | meterToCentimeter }}
@@ -75,3 +75,29 @@
         </ul>
     </div>
 </div>
+
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" formControlName="name">
+    <div *ngIf="myForm.get('name').invalid && (myForm.get('name').dirty || myForm.get('name').touched)">
+      <div *ngIf="myForm.get('name').errors.required">Name is required.</div>
+    </div>
+  
+    <label for="email">Email:</label>
+    <input type="text" id="email" formControlName="email">
+    <div *ngIf="myForm.get('email').invalid && (myForm.get('email').dirty || myForm.get('email').touched)">
+      <div *ngIf="myForm.get('email').errors.required">Email is required.</div>
+      <div *ngIf="myForm.get('email').errors.email">Invalid email format.</div>
+    </div>
+  
+    <label for="age">Age:</label>
+    <input type="number" id="age" formControlName="age">
+    <div *ngIf="myForm.get('age').invalid && (myForm.get('age').dirty || myForm.get('age').touched)">
+      <div *ngIf="myForm.get('age').errors.required">Age is required.</div>
+      <div *ngIf="myForm.get('age').errors.min">Age must be at least 18.</div>
+    </div>
+  
+    <button type="submit" [disabled]="myForm.invalid">Submit</button>
+  </form>
+  

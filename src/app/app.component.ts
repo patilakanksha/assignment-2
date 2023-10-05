@@ -6,46 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Directives and Pipe';
-  inputText: string = ''; // Initialize with an empty string
-  displayedContent: string = '';
 
-  months: string[] = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December'
-  ];
-
-//  -------------
-  public isAvailable: boolean = true;
-
-  toggleAvailability() {
-    this.isAvailable = !this.isAvailable;
-  }
-
-  // -------------
-  metersValue: number = 0;
-
-  displayContent(value: string) {
-    this.displayedContent = `You entered: ${value}`;
-  }
-
-  isSuccess: boolean = true;
-  isError: boolean = false;
-  message: string = 'Success';
-
-  toggleErrorState() {
-    this.isSuccess = !this.isSuccess;
-    this.isError = !this.isError;
-    this.message = this.isError ? 'Error' : 'Success';
-  }
 }

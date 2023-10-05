@@ -43,4 +43,14 @@ export class HomeComponent {
     this.message = this.isError ? 'Error' : 'Success';
   }
 
+  myForm: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
+    this.myForm = this.formBuilder.group({
+      // Define your form controls and their initial values and validators here
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      age: ['', [Validators.required, Validators.min(18)]],
+    });
+  }
 }
