@@ -1,0 +1,77 @@
+<div class="row">
+    <div class="col">
+        <div class="mt-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Interpolation</h5>
+                    <h3>Hello {{name}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="mt-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Property Binding</h5>
+                    <input type="text" [value]="inputText" #inputField class="form-control">
+                    <button class="btn btn-primary mt-3" (click)="displayContent(inputField.value)">Submit</button>
+                    <div>{{ displayedContent }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="mt-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Toggle State</h5>
+                    <div [ngClass]="{ 'success': isSuccess, 'error': isError }">
+                        {{ message }}
+                    </div>
+                    <button class="btn btn-primary" (click)="toggleErrorState()">Toggle error state</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <div class="mt-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Custom Pipe</h5>
+                    <div>
+                        <label for="metersInput">Enter value in meters:</label>
+                        <input type="number" id="metersInput" [(ngModel)]="metersValue">
+                    </div>
+                    <div>
+                        Value in centimeters: {{ metersValue | meterToCentimeter }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="mt-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">ngIf Example</h5>
+                    <button class="btn btn-info mb-4" (click)="toggleAvailability()">Toggle Availability</button>
+                    <div *ngIf="isAvailable">
+                        Available
+                    </div>
+                    <div *ngIf="!isAvailable">
+                        Not Available
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col mt-4">
+        <h5 class="card-title">ngFor Example</h5>
+        <ul>
+            <li *ngFor="let month of months">{{ month }}</li>
+        </ul>
+    </div>
+</div>

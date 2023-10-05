@@ -1,33 +1,16 @@
-<input type="text" [value]="inputText" #inputField>
-<button (click)="displayContent(inputField.value)">Submit</button>
-<div>{{ displayedContent }}</div>
-
-<div [ngClass]="{ 'success': isSuccess, 'error': isError }">
-  {{ message }}
+<div class="page-wrapper">
+    <app-header></app-header>
+<div class="container-fluid">
+  <div class="row">
+    <nav id="sidebar" class="col-md-3">
+      <app-sidebar></app-sidebar>
+    </nav>
+    <div class="col-md-9">
+      <app-home></app-home> <!-- Main content will be displayed here -->
+    </div>
+  </div>
 </div>
-<button (click)="toggleErrorState()">Toggle error state</button>
-
-<!--  ngFor -->
-<ul>
-  <li *ngFor="let month of months">{{ month }}</li>
-</ul>
-
-<!-- ngIf -->
-<div *ngIf="isAvailable">
-  Available
 </div>
-<div *ngIf="!isAvailable">
-  Not Available
-</div>
+<app-footer></app-footer>
 
-<button (click)="toggleAvailability()">Toggle Availability</button>
 
-<!-- custom pipe -->
-<div>
-  <label for="metersInput">Enter value in meters:</label>
-  <input type="number" id="metersInput" [(ngModel)]="metersValue">
-</div>
-
-<div>
-  Value in centimeters: {{ metersValue | meterToCentimeter }}
-</div>
