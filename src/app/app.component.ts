@@ -26,8 +26,15 @@ export class AppComponent {
     'December'
   ];
 
- 
+//  -------------
+  public isAvailable: boolean = true;
 
+  toggleAvailability() {
+    this.isAvailable = !this.isAvailable;
+  }
+
+  // -------------
+  metersValue: number = 0;
 
   displayContent(value: string) {
     this.displayedContent = `You entered: ${value}`;

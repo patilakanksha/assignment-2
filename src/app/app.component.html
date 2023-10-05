@@ -11,3 +11,23 @@
 <ul>
   <li *ngFor="let month of months">{{ month }}</li>
 </ul>
+
+<!-- ngIf -->
+<div *ngIf="isAvailable">
+  Available
+</div>
+<div *ngIf="!isAvailable">
+  Not Available
+</div>
+
+<button (click)="toggleAvailability()">Toggle Availability</button>
+
+<!-- custom pipe -->
+<div>
+  <label for="metersInput">Enter value in meters:</label>
+  <input type="number" id="metersInput" [(ngModel)]="metersValue">
+</div>
+
+<div>
+  Value in centimeters: {{ metersValue | meterToCentimeter }}
+</div>
