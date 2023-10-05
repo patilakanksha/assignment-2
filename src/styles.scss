@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+.success {
+    color: green;
+    font-style: italic;
+    font-weight: normal;
+  }
+  
+  .error {
+    color: red;
+    font-weight: bold;
+  }
